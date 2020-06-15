@@ -120,6 +120,41 @@
           }
         }
       }
+    },
+    "ngx-photo-editor": {
+      "projectType": "library",
+      "root": "projects/ngx-photo-editor",
+      "sourceRoot": "projects/ngx-photo-editor/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-photo-editor/tsconfig.lib.json",
+            "project": "projects/ngx-photo-editor/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-photo-editor/src/test.ts",
+            "tsConfig": "projects/ngx-photo-editor/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-photo-editor/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-photo-editor/tsconfig.lib.json",
+              "projects/ngx-photo-editor/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "ngx-photo-editor-app"
 }

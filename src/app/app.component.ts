@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {CroppedEvent} from '../../projects/ngx-photo-editor/src/lib/ngx-photo-editor.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ngx-photo-editor-app';
+  imageChangedEvent: any;
+
+  constructor() {
+  }
+
+  // onImageCropped(event: CroppedEvent) {
+  //   console.log(event);
+  // }
+  imgFile: any;
+
+  fileChangeEvent(event: any) {
+    this.imageChangedEvent = event;
+  }
+
+  imageCropped(event: CroppedEvent) {
+    console.log(event);
+  }
 }

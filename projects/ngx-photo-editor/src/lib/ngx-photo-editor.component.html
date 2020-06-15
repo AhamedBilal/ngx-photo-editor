@@ -1,0 +1,26 @@
+<ng-template #content let-modal>
+  <div class="modal-body" style="padding-bottom: 0" [style.backgroundColor]="darkTheme?'#36393F':'#D8D8D8'">
+    <h5 style="margin-bottom: 16px" [style.color]="darkTheme?'white':'black'">{{modalTitle}}</h5>
+    <div class="img-container" [style.height]="canvasHeight+'px'">
+      <img #image [src]="url" (load)="onImageLoad(image)" crossorigin>
+    </div>
+  </div>
+  <!--  <div style="padding: 5px 16px" [style.backgroundColor]="darkTheme?'#36393F':'#D8D8D8'">-->
+  <!--    <input type="range" style="height: 1px; margin: 0" class="custom-range" max="1" min="0" value="0" step="0.1" id="customRange1" (change)="zoom($event)">-->
+  <!--  </div>-->
+  <div class="icons-container">
+    <i class="fas fa-crop-alt" (click)="crop()"></i>
+    <i class="fas fa-arrows-alt" (click)="move()"></i>
+    <i class="fas fa-search-plus" (click)="zoomIn()"></i>
+    <i class="fas fa-search-minus" (click)="zoomOut()"></i>
+    <i class="fas fa-arrows-alt-v" (click)="flipV()"></i>
+    <i class="fas fa-arrows-alt-h" (click)="flipH()"></i>
+    <i class="fas fa-undo-alt" (click)="rotateLeft()"></i>
+    <i class="fas fa-redo-alt" (click)="rotateRight()"></i>
+    <i class="fas fa-sync-alt" (click)="reset()"></i>
+  </div>
+  <div class="custom-modal-footer" [style.backgroundColor]="darkTheme?'#36393F':'#D8D8D8'">
+    <button type="button" class="btn btn-primary" (click)="export(); modal.close();">Apply</button>
+    <button type="button" class="btn" [class.btn-outline-light]="darkTheme" [class.btn-outline-dark]="!darkTheme" (click)="modal.close()">Cancel</button>
+  </div>
+</ng-template>

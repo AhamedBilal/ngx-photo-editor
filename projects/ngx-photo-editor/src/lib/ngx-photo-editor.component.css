@@ -1,24 +1,24 @@
-@import "~bootstrap/dist/css/bootstrap.css";
-@import "~cropperjs/dist/cropper.css";
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.min.css');
 @import url('https://use.fontawesome.com/releases/v5.8.2/css/all.css');
 
-.img-container-demon {
+.ngx-photo-editor-ngx-photo-editor-img-container {
   width: 100%;
   float: left;
 }
 
-#image-demon {
+#ngx-photo-editor-image {
   display: block;
   max-width: 100%;
 }
 
-.modal-content {
+.ngx-photo-editor-modal-content {
   border: none;
   border-radius: 5px;
   overflow: hidden;
 }
 
-.icons-container-demon {
+.ngx-photo-editor-icons-container {
   background-color: #8F8F8F;
   color: white;
   padding: 15px;
@@ -27,29 +27,29 @@
   border: none;
 }
 
-.icons-container-demon > i {
+.ngx-photo-editor-icons-container > i {
   padding-right: 15px;
   transition: color 0.5s;
   cursor: pointer;
 }
 
-.icons-container-demon > i:nth-child(even) {
+.ngx-photo-editor-icons-container > i:nth-child(even) {
   padding-right: 30px;
 }
 
-.icons-container-demon > i:last-child {
+.ngx-photo-editor-icons-container > i:last-child {
   padding-right: 0;
 }
 
-.icons-container-demon > i:hover {
+.ngx-photo-editor-icons-container > i:hover {
   color: black;
 }
 
-.custom-modal-footer-demon {
+.ngx-photo-editor-custom-modal-footer {
   padding: 16px;
 }
 
-.custom-modal-footer-demon > button {
+.ngx-photo-editor-custom-modal-footer > button {
   padding: 5px 20px !important;
   font-size: 12px !important;
   float: right;

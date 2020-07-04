@@ -12,7 +12,7 @@ import ViewMode = Cropper.ViewMode;
 })
 export class NgxPhotoEditorComponent {
 
-  @ViewChild('content', {static: false}) content;
+  @ViewChild('ngxPhotoEditorContent', {static: false}) content;
 
   public cropper: Cropper;
   public outputImage: string;

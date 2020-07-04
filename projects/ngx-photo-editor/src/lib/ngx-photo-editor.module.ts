@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {NgxPhotoEditorComponent} from './ngx-photo-editor.component';
-import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({

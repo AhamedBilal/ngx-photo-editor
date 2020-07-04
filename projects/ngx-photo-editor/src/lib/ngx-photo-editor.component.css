@@ -1,21 +1,24 @@
+@import "~bootstrap/dist/css/bootstrap.css";
 @import "~cropperjs/dist/cropper.css";
+@import url('https://use.fontawesome.com/releases/v5.8.2/css/all.css');
 
-.img-container {
+.img-container-demon {
   width: 100%;
   float: left;
 }
 
-img {
+#image-demon {
   display: block;
   max-width: 100%;
 }
-.modal-content{
+
+.modal-content {
   border: none;
   border-radius: 5px;
   overflow: hidden;
 }
 
-.icons-container {
+.icons-container-demon {
   background-color: #8F8F8F;
   color: white;
   padding: 15px;
@@ -23,38 +26,34 @@ img {
   outline: none;
   border: none;
 }
-.icons-container > i {
+
+.icons-container-demon > i {
   padding-right: 15px;
   transition: color 0.5s;
   cursor: pointer;
 }
-.icons-container > i:nth-child(even){
+
+.icons-container-demon > i:nth-child(even) {
   padding-right: 30px;
 }
-.icons-container > i:last-child{
+
+.icons-container-demon > i:last-child {
   padding-right: 0;
 }
-.icons-container > i:hover {
+
+.icons-container-demon > i:hover {
   color: black;
 }
 
-.custom-modal-footer {
+.custom-modal-footer-demon {
   padding: 16px;
 }
-button {
-  padding: 5px 20px!important;
-  font-size: 12px!important;
+
+.custom-modal-footer-demon > button {
+  padding: 5px 20px !important;
+  font-size: 12px !important;
   float: right;
   margin-left: 10px;
-}
-
-.container {
-  margin: 20px auto;
-  max-width: 640px;
-}
-
-img {
-  max-width: 100%;
 }
 
 

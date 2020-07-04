@@ -16,6 +16,7 @@ export class AppComponent {
   //   console.log(event);
   // }
   imgFile: any;
+  imgUrl: any;
 
   fileChangeEvent(event: any) {
     this.imageChangedEvent = event;

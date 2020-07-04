@@ -1,26 +1,29 @@
 <ng-template #content let-modal>
-  <div class="modal-body" style="padding-bottom: 0" [style.backgroundColor]="darkTheme?'#36393F':'#D8D8D8'">
-    <h5 style="margin-bottom: 16px" [style.color]="darkTheme?'white':'black'">{{modalTitle}}</h5>
-    <div class="img-container" [style.height]="canvasHeight+'px'">
-      <img #image [src]="url" (load)="onImageLoad(image)" crossorigin>
+  <div [style.backgroundColor]="darkTheme?'#36393F':'#D8D8D8'" class="modal-body" style="padding-bottom: 0">
+    <h5 [style.color]="darkTheme?'white':'black'" style="margin-bottom: 16px">{{modalTitle}}</h5>
+    <div [style.height]="canvasHeight+'px'" class="img-container-demon">
+      <img #image (load)="onImageLoad(image)" [src]="url" crossorigin id="image-demon">
     </div>
   </div>
   <!--  <div style="padding: 5px 16px" [style.backgroundColor]="darkTheme?'#36393F':'#D8D8D8'">-->
   <!--    <input type="range" style="height: 1px; margin: 0" class="custom-range" max="1" min="0" value="0" step="0.1" id="customRange1" (change)="zoom($event)">-->
   <!--  </div>-->
-  <div class="icons-container">
-    <i class="fas fa-crop-alt" (click)="crop()"></i>
-    <i class="fas fa-arrows-alt" (click)="move()"></i>
-    <i class="fas fa-search-plus" (click)="zoomIn()"></i>
-    <i class="fas fa-search-minus" (click)="zoomOut()"></i>
-    <i class="fas fa-arrows-alt-v" (click)="flipV()"></i>
-    <i class="fas fa-arrows-alt-h" (click)="flipH()"></i>
-    <i class="fas fa-undo-alt" (click)="rotateLeft()"></i>
-    <i class="fas fa-redo-alt" (click)="rotateRight()"></i>
-    <i class="fas fa-sync-alt" (click)="reset()"></i>
+  <div class="icons-container-demon">
+    <i (click)="crop()" class="fas fa-crop-alt"></i>
+    <i (click)="move()" class="fas fa-arrows-alt"></i>
+    <i (click)="zoomIn()" class="fas fa-search-plus"></i>
+    <i (click)="zoomOut()" class="fas fa-search-minus"></i>
+    <i (click)="flipV()" class="fas fa-arrows-alt-v"></i>
+    <i (click)="flipH()" class="fas fa-arrows-alt-h"></i>
+    <i (click)="rotateLeft()" class="fas fa-undo-alt"></i>
+    <i (click)="rotateRight()" class="fas fa-redo-alt"></i>
+    <i (click)="reset()" class="fas fa-sync-alt"></i>
   </div>
-  <div class="custom-modal-footer" [style.backgroundColor]="darkTheme?'#36393F':'#D8D8D8'">
-    <button type="button" class="btn btn-primary" (click)="export(); modal.close();">Apply</button>
-    <button type="button" class="btn" [class.btn-outline-light]="darkTheme" [class.btn-outline-dark]="!darkTheme" (click)="modal.close()">Cancel</button>
+  <div [style.backgroundColor]="darkTheme?'#36393F':'#D8D8D8'" class="custom-modal-footer-demon">
+    <button (click)="export(); modal.close();" class="btn btn-primary" type="button">Apply</button>
+    <button (click)="modal.close()" [class.btn-outline-dark]="!darkTheme" [class.btn-outline-light]="darkTheme"
+            class="btn"
+            type="button">Cancel
+    </button>
   </div>
 </ng-template>

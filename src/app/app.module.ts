@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {NgxPhotoEditorModule} from '../../projects/ngx-photo-editor/src/lib/ngx-photo-editor.module';
+import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,7 @@ import {NgxPhotoEditorModule} from '../../projects/ngx-photo-editor/src/lib/ngx-
   ],
   imports: [
     BrowserModule,
-    NgxPhotoEditorModule
+    NgxPhotoEditorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

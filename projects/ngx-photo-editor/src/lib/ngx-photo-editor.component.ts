@@ -43,8 +43,8 @@ export class NgxPhotoEditorComponent {
   url: string;
   lastUpdate = Date.now();
 
-  format: string;
-  quality = 95;
+  format = 'png';
+  quality = 92;
 
   @Output() imageCropped = new EventEmitter();
 
@@ -76,13 +76,14 @@ export class NgxPhotoEditorComponent {
   @Input() set imageBase64(base64: string) {
     if (base64 && (/^data:image\/([a-zA-Z]*);base64,([^\"]*)$/).test(base64)) {
       this.imageUrl = base64;
+      this.imageFormat = ((base64.split(',')[0]).split(';')[0]).split(':')[1].split('/')[1];
     }
   }
 
   @Input() set imageChanedEvent(event: any) {
     if (event) {
       const file = event.target.files[0];
-      if ((/\.(gif|jpe?g|tiff|png|webp|bmp)$/i).test(file.name)) {
+      if (file && (/\.(gif|jpe?g|tiff|png|webp|bmp)$/i).test(file.name)) {
         this.imageFormat = event.target.files[0].type.split('/')[1];
         const reader = new FileReader();
         reader.onload = (ev: any) => {
@@ -95,6 +96,7 @@ export class NgxPhotoEditorComponent {
 
   @Input() set imageFile(file: File) {
     if (file && (/\.(gif|jpe?g|tiff|png|webp|bmp)$/i).test(file.name)) {
+      this.imageFormat = file.type.split('/')[1];
       const reader = new FileReader();
       reader.onload = (ev: any) => {
         this.imageUrl = ev.target.result;
@@ -113,17 +115,17 @@ export class NgxPhotoEditorComponent {
     });
 
     this.cropper = new Cropper(image, {
-      aspectRatio: 1,
-      autoCropArea: 1,
-      autoCrop: true,
+      aspectRatio: this.aspectRatio,
+      autoCropArea: this.autoCropArea,
+      autoCrop: this.autoCrop,
       modal: this.mask, // black mask
       guides: this.guides, // grid
       center: this.centerIndicator, // center indicator
       viewMode: this.viewMode,
-      scalable: true,
-      zoomable: true,
-      cropBoxMovable: true,
-      cropBoxResizable: true,
+      scalable: this.scalable,
+      zoomable: this.zoomable,
+      cropBoxMovable: this.cropBoxMovable,
+      cropBoxResizable: this.cropBoxResizable,
     });
   }
 
@@ -211,7 +213,7 @@ export class NgxPhotoEditorComponent {
         imageSmoothingQuality: this.imageSmoothingQuality
       });
     }
-    this.outputImage = cropedImage.toDataURL('image/' + this.format);
+    this.outputImage = cropedImage.toDataURL('image/' + this.format, this.quality);
     cropedImage.toBlob(blob => {
       this.imageCropped.emit({
         base64: this.outputImage,
@@ -222,7 +224,7 @@ export class NgxPhotoEditorComponent {
 
   open() {
     this.modalService.dismissAll();
-    this.modalService.open(this.content, {size: this.modalSize, centered: this.modalCentered});
+    this.modalService.open(this.content, {size: this.modalSize, centered: this.modalCentered, backdrop: 'static'});
   }
 }
 

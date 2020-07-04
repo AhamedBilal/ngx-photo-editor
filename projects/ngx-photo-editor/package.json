@@ -27,7 +27,8 @@
     "angular cropper",
     "angular photo editor",
     "angular image cropper",
-    "image cropper"
+    "image cropper",
+    "popup cropper"
   ],
   "license": "MIT",
   "peerDependencies": {

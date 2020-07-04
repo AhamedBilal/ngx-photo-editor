@@ -5,6 +5,9 @@
       <img #image (load)="onImageLoad(image)" [src]="url" crossorigin id="ngx-photo-editor-image">
     </div>
   </div>
+  <!--  <div style="padding: 5px 16px" [style.backgroundColor]="darkTheme?'#36393F':'#D8D8D8'">-->
+  <!--    <input type="range" style="height: 1px; margin: 0" class="custom-range" max="1" min="0" value="0" step="0.1" id="customRange1" (change)="zoom($event)">-->
+  <!--  </div>-->
   <div class="ngx-photo-editor-icons-container">
     <i (click)="crop()" class="fas fa-crop-alt"></i>
     <i (click)="move()" class="fas fa-arrows-alt"></i>

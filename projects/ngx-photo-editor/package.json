@@ -36,7 +36,7 @@
     "@angular/core": ">=8.2.14"
   },
   "dependencies": {
-    "cropperjs": ">=.5.7",
+    "cropperjs": ">=1.5.7",
     "bootstrap": ">=4.5.0",
     "@ng-bootstrap/ng-bootstrap": ">=5.3.1"
   }

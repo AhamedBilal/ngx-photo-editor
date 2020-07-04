@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {CroppedEvent} from '../../projects/ngx-photo-editor/src/lib/ngx-photo-editor.component';
 
 @Component({
@@ -20,9 +20,13 @@ export class AppComponent {
 
   fileChangeEvent(event: any) {
     this.imageChangedEvent = event;
+    console.log(event.target.files[0])
+    console.log(event.target.files[0].size / 1024);
   }
 
   imageCropped(event: CroppedEvent) {
+    this.imgFile = event.base64;
     console.log(event);
+    console.log(event.file.size / 1024);
   }
 }

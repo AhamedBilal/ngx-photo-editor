@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, Output, ViewChild, ViewEncapsulation} from '@angular/core';
 import Cropper from 'cropperjs';
-import ViewMode = Cropper.ViewMode;
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import ViewMode = Cropper.ViewMode;
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -46,7 +46,9 @@ export class NgxPhotoEditorComponent {
   format = 'png';
   quality = 92;
 
-  @Output() imageCropped = new EventEmitter();
+  isFormatDefined = false;
+
+  @Output() imageCropped = new EventEmitter<CroppedEvent>();
 
   constructor(private modalService: NgbModal) {
   }
@@ -57,9 +59,10 @@ export class NgxPhotoEditorComponent {
     }
   }
 
-  @Input() set imageFormat(type: string) {
+  @Input() set imageFormat(type: imageFormat) {
     if ((/^(gif|jpe?g|tiff|png|webp|bmp)$/i).test(type)) {
       this.format = type;
+      this.isFormatDefined = true;
     }
   }
 
@@ -76,7 +79,9 @@ export class NgxPhotoEditorComponent {
   @Input() set imageBase64(base64: string) {
     if (base64 && (/^data:image\/([a-zA-Z]*);base64,([^\"]*)$/).test(base64)) {
       this.imageUrl = base64;
-      this.imageFormat = ((base64.split(',')[0]).split(';')[0]).split(':')[1].split('/')[1];
+      if (!this.isFormatDefined) {
+        this.format = ((base64.split(',')[0]).split(';')[0]).split(':')[1].split('/')[1];
+      }
     }
   }
 
@@ -84,7 +89,9 @@ export class NgxPhotoEditorComponent {
     if (event) {
       const file = event.target.files[0];
       if (file && (/\.(gif|jpe?g|tiff|png|webp|bmp)$/i).test(file.name)) {
-        this.imageFormat = event.target.files[0].type.split('/')[1];
+        if (!this.isFormatDefined) {
+          this.format = event.target.files[0].type.split('/')[1];
+        }
         const reader = new FileReader();
         reader.onload = (ev: any) => {
           this.imageUrl = ev.target.result;
@@ -96,7 +103,9 @@ export class NgxPhotoEditorComponent {
 
   @Input() set imageFile(file: File) {
     if (file && (/\.(gif|jpe?g|tiff|png|webp|bmp)$/i).test(file.name)) {
-      this.imageFormat = file.type.split('/')[1];
+      if (!this.isFormatDefined) {
+        this.format = file.type.split('/')[1];
+      }
       const reader = new FileReader();
       reader.onload = (ev: any) => {
         this.imageUrl = ev.target.result;
@@ -232,3 +241,5 @@ export interface CroppedEvent {
   base64?: string;
   file?: File;
 }
+
+export type imageFormat = 'gif' | 'jpeg' | 'tiff' | 'png' | 'webp' | 'bmp';

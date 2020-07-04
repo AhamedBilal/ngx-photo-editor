@@ -1,5 +1,10 @@
-<div style="padding-top: 100px">
-  <input type="file" (change)="fileChangeEvent($event)" />
+<div>
+  <input type="file" (change)="fileChangeEvent($event)"/>
 </div>
-<ngx-photo-editor [imageChanedEvent]="imageChangedEvent" (imageCropped)="imageCropped($event)"></ngx-photo-editor>
-<img  [src]="imgFile" alt="">
+<ngx-photo-editor
+  [imageChanedEvent]="imageChangedEvent"
+  (imageCropped)="imageCropped($event)"
+  [viewMode]="3"
+  [resizeToWidth]="500"
+></ngx-photo-editor>
+<img [src]="imgFile" alt="">

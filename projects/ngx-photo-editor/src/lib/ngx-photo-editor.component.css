@@ -1,6 +1,10 @@
-@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.min.css');
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~cropperjs/dist/cropper.css";
 @import url('https://use.fontawesome.com/releases/v5.8.2/css/all.css');
+
+/*@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css');*/
+/*@import url('https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.7/cropper.min.css');*/
+/*@import url('https://use.fontawesome.com/releases/v5.8.2/css/all.css');*/
 
 .ngx-photo-editor-ngx-photo-editor-img-container {
   width: 100%;

@@ -101,7 +101,7 @@ All inputs are optional. Either the `imageChangedEvent`, `imageBase64` or `image
 | `zoomable`                 | boolean   | true         | Enable to zoom the image. |
 | `cropBoxMovable`           | boolean   | true         | Enable to move the crop box by dragging. |
 | `cropBoxResizable`         | boolean   | true         | Enable to resize the crop box by dragging. |
-| `modalSize`                | string    | null         | Modal Size. ('sm' | 'lg' | 'xl') |
+| `modalSize`                | string    | null         | Modal Size. ('sm' / 'lg' / 'xl') |
 | `modalCentered`            | boolean   | false        | Modal Position Centered. |
 | `darkTheme`                | boolean   | true         | Enable Dark Theme. |
 | `imageSmoothingEnabled`    | boolean   | true         | Smooth image output. |

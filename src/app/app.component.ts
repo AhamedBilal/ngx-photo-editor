@@ -12,15 +12,12 @@ export class AppComponent {
   constructor() {
   }
 
-  // onImageCropped(event: CroppedEvent) {
-  //   console.log(event);
-  // }
   imgFile: any;
   imgUrl: any;
 
   fileChangeEvent(event: any) {
     this.imageChangedEvent = event;
-    console.log(event.target.files[0])
+    console.log(event.target.files[0]);
     console.log(event.target.files[0].size / 1024);
   }
 

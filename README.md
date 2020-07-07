@@ -107,4 +107,16 @@ All inputs are optional. Either the `imageChangedEvent`, `imageBase64` or `image
 | `imageSmoothingEnabled`    | boolean   | true         | Smooth image output. |
 | `imageSmoothingQuality`    | string    | low         | quality of image smoothing, one of "low" or "medium", or "high". |
 
+## Outputs
 
+| Name                    | Type              | Description |
+| ----------------------- | ----------------- | ----------- |
+| `imageCropped`          | ImageCroppedEvent | Emits an ImageCroppedEvent each time the image is cropped |
+| `loadImageFailed`       | void              | Emits when a wrong file type was selected |
+
+## Interfaces
+#### ImageCroppedEvent
+| Property              | Type            | Description |
+| --------------------  | ------          | ----------- |
+| base64                | string          | Base64 string of the cropped image |
+| file                  | file(Blob)      | Blob(File) of the cropped image |

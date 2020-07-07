@@ -1,24 +1,138 @@
-# NgxPhotoEditor
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.14.
+## Getting started
 
-## Code scaffolding
+#### Step 1: Install ng-bootstrap
 
-Run `ng generate component component-name --project ngx-photo-editor` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-photo-editor`.
-> Note: Don't forget to add `--project ngx-photo-editor` or else it will be added to the default project in your `angular.json` file. 
+- [ng-bootstrap](https://ng-bootstrap.github.io/#/getting-started)
+```bash
+   ng add @ng-bootstrap/ng-bootstrap
+```
 
-## Build
+#### Step 2: Install ngx-photo-editor
+    
+```bash
+    npm install ngx-photo-editor --save
+```
+#### Step 3: Add `bootstrap` file paths in your `.angular.json`
+      
+```json
+}
+       "styles": [
+         "node_modules/bootstrap/dist/css/bootstrap.min.css"
+       ]
+}
+```
 
-Run `ng build ngx-photo-editor` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Example usage:
+Add the NgxPhotoEditorModule to the imports of the module.
+```js
+      import {NgxImageEditorModule} from "ngx-image-editor";
 
-## Publishing
+      @NgModule({
+        imports: [
+          NgxPhotoEditorModule
+        ]
+      })
+```
 
-After building your library with `ng build ngx-photo-editor`, go to the dist folder `cd dist/ngx-photo-editor` and run `npm publish`.
+Add the element to your HTML:
+```html
 
-## Running unit tests
+<div><input type="file" (change)="fileChangeEvent($event)"/></div>
 
-Run `ng test ngx-photo-editor` to execute the unit tests via [Karma](https://karma-runner.github.io).
+<ngx-photo-editor
+  [imageChanedEvent]="imageChangedEvent"
+  (imageCropped)="imageCropped($event)"
+  [aspectRatio]="4/3"
+  [viewMode]="3"
+  [resizeToWidth]="500"></ngx-photo-editor>
 
-## Further help
+<img [src]="base64" alt="">
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+
+And add this to your ts file:
+```js
+
+import {CroppedEvent} from 'ngx-photo-editor';
+
+export class AppComponent {
+  imageChangedEvent: any;
+  base64: any;
+  
+  fileChangeEvent(event: any) {
+    this.imageChangedEvent = event;
+  }
+
+  imageCropped(event: CroppedEvent) {
+    this.base64 = event.base64;
+  }
+}
+
+```
+
+When you choose a file from the file input, it will trigger `fileChangeEvent`.
+That event is then passed to the ngxPhotoEditor through `imageChangedEvent` which will load the image into the cropper.
+Everytime you release the mouse, the `imageCropped` event will be triggerd with the cropped image as a Base64, Blob in its payload.
+
+## API
+All inputs are optional. Either the `imageChangedEvent`, `imageBase64` or `imageFile` or `imageUrl` should be set to load an image into the cropper.
+
+## Inputs
+|  Name                      | Type      | Default      | Description     |
+| -------------------------- |---------- | ------------ | --------------- |
+| `imageChangedEvent`        | FileEvent |              | The change event from your file input |
+| `imageFile`                | Blob(File)|              | The file you want to change |
+| `imageBase64`              | string    |              | If you don't want to use a file input, you can set a base64 image directly and it will be loaded into the cropper |
+| `imageURL`                 | string    |              | If you don't want to use a file input or a base64 you can set an URL to get the image from. If requesting an image from a different domain make sure Cross-Origin Resource Sharing (CORS) is allowed or the image will fail to load. |
+| `format`                   | string    | png          | Output format (png, jpeg, webp, bmp, ico) (not all browsers support all types, png is always supported, others are optional) |
+| `aspectRatio`              | number    | 1 / 1        | The width / height ratio (e.g. 1 / 1 for a square, 4 / 3, 16 / 9 ...) |
+| `resizeToWidth`            | number    | 0 (disabled) | Cropped image will be resized to this width (in px) |
+| `resizeToHeight`           | number    | 0 (disabled) | Cropped image will be resized to this height (in px) (will be ignored if resizeToWidth is set)  |
+| `roundCropper`             | boolean   | false        | Set this to true for a round cropper. Resulting image will still be square, use `border-radius: 100%` on resulting image to show it as round. |
+| `imageQuality`             | number    | 92           | This only applies when using jpeg or webp as output format. Entering a number between 0 and 100 will determine the quality of the output image. |
+| `autoCrop`                 | boolean   | true         | Enable to crop the image automatically when initialized. |
+| `autoCropArea`             | number    | 1 (80% of the image)| A number between 0 and 1. Define the automatic cropping area size (percentage). |
+| `viewMode`                 | number    | 0            | Define the [ViewMode](#viewMode) of the cropper. |
+| `mask`                     | boolean   | true         | Show the black modal above the image and under the crop box. |
+| `guides`                   | boolean   | true         | Show the dashed lines above the crop box. |
+| `centerIndicator`          | boolean   | true         | Show the center indicator above the crop box. |
+| `canvasHeight`             | number    | 400          | Cropper canvas height. |
+| `scalable`                 | boolean   | true         | Enable to scale the image. |
+| `zoomable`                 | boolean   | true         | Enable to zoom the image. |
+| `cropBoxMovable`           | boolean   | true         | Enable to move the crop box by dragging. |
+| `cropBoxResizable`         | boolean   | true         | Enable to resize the crop box by dragging. |
+| `modalSize`                | string    | null         | Modal Size. ('sm' / 'lg' / 'xl') |
+| `modalCentered`            | boolean   | false        | Modal Position Centered. |
+| `darkTheme`                | boolean   | true         | Enable Dark Theme. |
+| `imageSmoothingEnabled`    | boolean   | true         | Smooth image output. |
+| `imageSmoothingQuality`    | string    | low         | quality of image smoothing, one of "low" or "medium", or "high". |
+
+## Outputs
+
+| Name                    | Type              | Description |
+| ----------------------- | ----------------- | ----------- |
+| `imageCropped`          | ImageCroppedEvent | Emits an ImageCroppedEvent each time the image is cropped |
+| `loadImageFailed`       | void              | Emits when a wrong file type was selected |
+
+## Interfaces
+#### ImageCroppedEvent
+| Property              | Type            | Description |
+| --------------------  | ------          | ----------- |
+| base64                | string          | Base64 string of the cropped image |
+| file                  | file(Blob)      | Blob(File) of the cropped image |
+
+### viewMode
+
+- Type: `Number`
+- Default: `0`
+- Options:
+  - `0`: no restrictions
+  - `1`: restrict the crop box to not exceed the size of the canvas.
+  - `2`: restrict the minimum canvas size to fit within the container. If the proportions of the canvas and the container differ, the minimum canvas will be surrounded by extra space in one of the dimensions.
+  - `3`: restrict the minimum canvas size to fill fit the container. If the proportions of the canvas and the container are different, the container will not be able to fit the whole canvas in one of the dimensions.
+
+Define the view mode of the cropper. If you set `viewMode` to `0`, the crop box can extend outside the canvas, while a value of `1`, `2` or `3` will restrict the crop box to the size of the canvas. A `viewMode` of `2` or `3` will additionally restrict the canvas to the container. Note that if the proportions of the canvas and the container are the same, there is no difference between `2` and `3`.
+
+
+

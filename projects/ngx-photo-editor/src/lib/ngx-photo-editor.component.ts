@@ -26,7 +26,7 @@ export class NgxPhotoEditorComponent {
   @Input() guides = true;
   @Input() centerIndicator = true;
   @Input() viewMode: ViewMode = 0;
-  @Input() modalSize: string;
+  @Input() modalSize: size;
   @Input() modalCentered = false;
   @Input() scalable = true;
   @Input() zoomable = true;
@@ -242,3 +242,5 @@ export interface CroppedEvent {
 }
 
 export type imageFormat = 'gif' | 'jpeg' | 'tiff' | 'png' | 'webp' | 'bmp';
+
+export type size = 'sm' | 'lg' | 'xl' | string;

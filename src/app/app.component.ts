@@ -8,22 +8,13 @@ import {CroppedEvent} from 'ngx-photo-editor';
 })
 export class AppComponent {
   imageChangedEvent: any;
-
-  constructor() {
-  }
-
-  imgFile: any;
-  imgUrl: any;
+  base64: any;
 
   fileChangeEvent(event: any) {
     this.imageChangedEvent = event;
-    console.log(event.target.files[0]);
-    console.log(event.target.files[0].size / 1024);
   }
 
   imageCropped(event: CroppedEvent) {
-    this.imgFile = event.base64;
-    console.log(event);
-    console.log(event.file.size / 1024);
+    this.base64 = event.base64;
   }
 }

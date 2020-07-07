@@ -92,6 +92,19 @@ All inputs are optional. Either the `imageChangedEvent`, `imageBase64` or `image
 | `roundCropper`             | boolean   | false        | Set this to true for a round cropper. Resulting image will still be square, use `border-radius: 100%` on resulting image to show it as round. |
 | `imageQuality`             | number    | 92           | This only applies when using jpeg or webp as output format. Entering a number between 0 and 100 will determine the quality of the output image. |
 | `autoCrop`                 | boolean   | true         | Enable to crop the image automatically when initialized. |
-| `autoCrop`                 | number   | 1 (80% of the image)| A number between 0 and 1. Define the automatic cropping area size (percentage). |
-| `autoCrop`                 | boolean   | true         | Enable to crop the image automatically when initialized. |
+| `autoCropArea`             | number    | 1 (80% of the image)| A number between 0 and 1. Define the automatic cropping area size (percentage). |
+| `mask`                     | boolean   | true         | Show the black modal above the image and under the crop box. |
+| `guides`                   | boolean   | true         | Show the dashed lines above the crop box. |
+| `centerIndicator`          | boolean   | true         | Show the center indicator above the crop box. |
+| `canvasHeight`             | number    | 400          | Cropper canvas height. |
+| `scalable`                 | boolean   | true         | Enable to scale the image. |
+| `zoomable`                 | boolean   | true         | Enable to zoom the image. |
+| `cropBoxMovable`           | boolean   | true         | Enable to move the crop box by dragging. |
+| `cropBoxResizable`         | boolean   | true         | Enable to resize the crop box by dragging. |
+| `modalSize`                | string    | null         | Modal Size. ('sm' | 'lg' | 'xl') |
+| `modalCentered`            | boolean   | false        | Modal Position Centered. |
+| `darkTheme`                | boolean   | true         | Enable Dark Theme. |
+| `imageSmoothingEnabled`    | boolean   | true         | Smooth image output. |
+| `imageSmoothingQuality`    | string    | low         | quality of image smoothing, one of "low" or "medium", or "high". |
+
 

@@ -232,7 +232,6 @@ export class NgxPhotoEditorComponent {
   }
 
   open() {
-    this.modalService.dismissAll();
     this.modalService.open(this.content, {size: this.modalSize, centered: this.modalCentered, backdrop: 'static'});
   }
 }

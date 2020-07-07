@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {CroppedEvent} from '../../projects/ngx-photo-editor/src/lib/ngx-photo-editor.component';
+import {CroppedEvent} from 'ngx-photo-editor';
 
 @Component({
   selector: 'app-root',

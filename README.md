@@ -1,7 +1,3 @@
-<p align="center">
-  <img  style="text-align: center;" src="https://github.com/Centroida/ngx-image-editor/raw/master/assets/editor.png">
-  <h1 align="center">ngx-photo-editor</h1>
-</p>
 
 ## Getting started
 
@@ -83,6 +79,8 @@ Everytime you release the mouse, the `imageCropped` event will be triggerd with 
 All inputs are optional. Either the `imageChangedEvent`, `imageBase64` or `imageFile` or `imageUrl` should be set to load an image into the cropper.
 
 ## Inputs
+|  Name                      | Type      | Default      | Description     |
+| -------------------------- |---------- | ------------ | --------------- |
 | `imageChangedEvent`        | FileEvent |              | The change event from your file input |
 | `imageFile`                | Blob(File)|              | The file you want to change |
 | `imageBase64`              | string    |              | If you don't want to use a file input, you can set a base64 image directly and it will be loaded into the cropper |

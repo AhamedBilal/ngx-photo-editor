@@ -93,6 +93,7 @@ All inputs are optional. Either the `imageChangedEvent`, `imageBase64` or `image
 | `imageQuality`             | number    | 92           | This only applies when using jpeg or webp as output format. Entering a number between 0 and 100 will determine the quality of the output image. |
 | `autoCrop`                 | boolean   | true         | Enable to crop the image automatically when initialized. |
 | `autoCropArea`             | number    | 1 (80% of the image)| A number between 0 and 1. Define the automatic cropping area size (percentage). |
+| `viewMode`                 | number    | 0            | Define the [ViewMode](#viewMode) of the cropper. |
 | `mask`                     | boolean   | true         | Show the black modal above the image and under the crop box. |
 | `guides`                   | boolean   | true         | Show the dashed lines above the crop box. |
 | `centerIndicator`          | boolean   | true         | Show the center indicator above the crop box. |
@@ -120,3 +121,18 @@ All inputs are optional. Either the `imageChangedEvent`, `imageBase64` or `image
 | --------------------  | ------          | ----------- |
 | base64                | string          | Base64 string of the cropped image |
 | file                  | file(Blob)      | Blob(File) of the cropped image |
+
+### viewMode
+
+- Type: `Number`
+- Default: `0`
+- Options:
+  - `0`: no restrictions
+  - `1`: restrict the crop box to not exceed the size of the canvas.
+  - `2`: restrict the minimum canvas size to fit within the container. If the proportions of the canvas and the container differ, the minimum canvas will be surrounded by extra space in one of the dimensions.
+  - `3`: restrict the minimum canvas size to fill fit the container. If the proportions of the canvas and the container are different, the container will not be able to fit the whole canvas in one of the dimensions.
+
+Define the view mode of the cropper. If you set `viewMode` to `0`, the crop box can extend outside the canvas, while a value of `1`, `2` or `3` will restrict the crop box to the size of the canvas. A `viewMode` of `2` or `3` will additionally restrict the canvas to the container. Note that if the proportions of the canvas and the container are the same, there is no difference between `2` and `3`.
+
+
+

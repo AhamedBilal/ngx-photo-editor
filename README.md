@@ -2,13 +2,12 @@
 
 ![example](https://github.com/AhamedBilal/ngx-photo-editor/blob/master/intro.gif)
 
-[Demo](https://stackblitz.com/edit/image-cropper)
+###[Demo](https://ahamedbilal.github.io/ngx-photo-editor/)
 
 ## Getting started
 
-#### Step 1: Install ng-bootstrap
+#### Step 1: Install [ng-bootstrap](https://ng-bootstrap.github.io/#/getting-started)
 
-- [ng-bootstrap](https://ng-bootstrap.github.io/#/getting-started)
 ```bash
    ng add @ng-bootstrap/ng-bootstrap
 ```

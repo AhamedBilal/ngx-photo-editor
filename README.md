@@ -1,3 +1,8 @@
+# Ngx Photo Editor
+(Awesome editor for Angular)
+
+![example](https://github.com/AhamedBilal/ngx-photo-editor/blob/master/intro.gif)
+
 
 ## Getting started
 

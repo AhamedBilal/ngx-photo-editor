@@ -1,3 +1,8 @@
+# Ngx Photo Editor
+(Awesome editor for Angular)
+
+![example](https://github.com/AhamedBilal/ngx-photo-editor/blob/master/intro.gif)
+
 
 ## Getting started
 
@@ -12,15 +17,6 @@
     
 ```bash
     npm install ngx-photo-editor --save
-```
-#### Step 3: Add `bootstrap` file paths in your `.angular.json`
-      
-```json
-}
-       "styles": [
-         "node_modules/bootstrap/dist/css/bootstrap.min.css"
-       ]
-}
 ```
 
 ## Example usage:
@@ -112,7 +108,7 @@ All inputs are optional. Either the `imageChangedEvent`, `imageBase64` or `image
 
 | Name                    | Type              | Description |
 | ----------------------- | ----------------- | ----------- |
-| `imageCropped`          | ImageCroppedEvent | Emits an ImageCroppedEvent each time the image is cropped |
+| `imageCropped`          | CroppedEvent      | Emits an ImageCroppedEvent each time the image is cropped |
 | `loadImageFailed`       | void              | Emits when a wrong file type was selected |
 
 ## Interfaces

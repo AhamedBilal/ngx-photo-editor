@@ -1,6 +1,8 @@
 # Awesome Photo editor for Angular
+[![NPM version][npm-image]][npm-url]
+[![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg?color=blue&style=flat-square)](http://opensource.org/licenses/MIT)
 
-![example](https://github.com/AhamedBilal/ngx-photo-editor/blob/master/intro.gif)
+![example](https://github.com/AhamedBilal/ngx-photo-editor/blob/master/intro.gif?raw=true)
 
 ### [Demo](https://ahamedbilal.github.io/ngx-photo-editor/)
 
@@ -130,4 +132,5 @@ All inputs are optional. Either the `imageChangedEvent`, `imageBase64` or `image
 Define the view mode of the cropper. If you set `viewMode` to `0`, the crop box can extend outside the canvas, while a value of `1`, `2` or `3` will restrict the crop box to the size of the canvas. A `viewMode` of `2` or `3` will additionally restrict the canvas to the container. Note that if the proportions of the canvas and the container are the same, there is no difference between `2` and `3`.
 
 
-
+[npm-url]: https://www.npmjs.com/package/ngx-photo-editor
+[npm-image]: https://badge.fury.io/js/ngx-photo-editor.svg

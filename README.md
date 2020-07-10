@@ -2,7 +2,7 @@
 [![NPM version][npm-image]][npm-url]
 [![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg?color=blue&style=flat-square)](http://opensource.org/licenses/MIT)
 
-![example](https://github.com/AhamedBilal/ngx-photo-editor/blob/master/intro.gif)
+![example](https://github.com/AhamedBilal/ngx-photo-editor/blob/master/intro.gif?raw=true)
 
 ### [Demo](https://ahamedbilal.github.io/ngx-photo-editor/)
 

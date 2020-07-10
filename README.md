@@ -2,7 +2,7 @@
 
 ![example](https://github.com/AhamedBilal/ngx-photo-editor/blob/master/intro.gif)
 
-###[Demo](https://ahamedbilal.github.io/ngx-photo-editor/)
+### [Demo](https://ahamedbilal.github.io/ngx-photo-editor/)
 
 ## Getting started
 

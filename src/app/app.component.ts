@@ -7,12 +7,14 @@ import {CroppedEvent} from 'ngx-photo-editor';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  imageChangedEvent: any;
+
   base64: any;
+  imageChangedEvent: any;
 
   fileChangeEvent(event: any) {
     this.imageChangedEvent = event;
   }
+
 
   imageCropped(event: CroppedEvent) {
     this.base64 = event.base64;

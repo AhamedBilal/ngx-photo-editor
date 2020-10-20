@@ -1,12 +1,30 @@
-<div><input type="file" (change)="fileChangeEvent($event)"/></div>
+<mat-toolbar color="primary">
+  <span>ngx-photo-editor</span>
+  <span class="example-spacer"></span>
+  <button mat-button><mat-icon style="font-size: 24px" fontSet="fab" fontIcon="fa-github"></mat-icon> &nbsp;GitHub</button>
+</mat-toolbar>
+
+<div class="container">
+  <form class="mt-3">
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="customFile" (change)="fileChangeEvent($event)">
+      <label class="custom-file-label" for="customFile">Choose file</label>
+    </div>
+  </form>
+  <div class="bg-dark p-5" style="text-align: -webkit-center; height: 400px">
+    <img *ngIf="imageChangedEvent" class="h-100 d-block img-fluid" [src]="base64" alt="">
+  </div>
+</div>
+
+
 
 <ngx-photo-editor
   [imageChanedEvent]="imageChangedEvent"
   (imageCropped)="imageCropped($event)"
-  imageFormat=""
+  imageFormat="png"
   [aspectRatio]="4/3"
-  [viewMode]="3"
-  [resizeToWidth]="500">
+  [viewMode]="0"
+  [resizeToWidth]="500"
+>
 </ngx-photo-editor>
 
-<img [src]="base64" alt="">

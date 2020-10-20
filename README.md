@@ -23,7 +23,7 @@
 ## Example usage:
 Add the NgxPhotoEditorModule to the imports of the module.
 ```js
-      import {NgxImageEditorModule} from "ngx-image-editor";
+      import {NgxPhotoEditorModule} from "ngx-photo-editor";
 
       @NgModule({
         imports: [

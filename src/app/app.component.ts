@@ -19,4 +19,12 @@ export class AppComponent {
   imageCropped(event: CroppedEvent) {
     this.base64 = event.base64;
   }
+
+  gotoGithub() {
+    window.open('https://github.com/AhamedBilal/ngx-photo-editor');
+  }
+
+  // gotoNPM() {
+  //   window.open('https://www.npmjs.com/package/ngx-photo-editor');
+  // }
 }

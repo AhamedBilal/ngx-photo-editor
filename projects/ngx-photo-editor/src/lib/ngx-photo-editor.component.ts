@@ -185,39 +185,23 @@ export class NgxPhotoEditorComponent {
     if (this.resizeToWidth && this.resizeToHeight) {
       cropedImage = this.cropper.getCroppedCanvas({
         width: this.resizeToWidth,
-        minWidth: 256,
-        minHeight: 256,
-        maxWidth: 4096,
-        maxHeight: 4096,
         imageSmoothingEnabled: this.imageSmoothingEnabled,
         imageSmoothingQuality: this.imageSmoothingQuality
       });
     } else if (this.resizeToHeight) {
       cropedImage = this.cropper.getCroppedCanvas({
         height: this.resizeToHeight,
-        minWidth: 256,
-        minHeight: 256,
-        maxWidth: 4096,
-        maxHeight: 4096,
         imageSmoothingEnabled: this.imageSmoothingEnabled,
         imageSmoothingQuality: this.imageSmoothingQuality
       });
     } else if (this.resizeToWidth) {
       cropedImage = this.cropper.getCroppedCanvas({
         width: this.resizeToWidth,
-        minWidth: 256,
-        minHeight: 256,
-        maxWidth: 4096,
-        maxHeight: 4096,
         imageSmoothingEnabled: this.imageSmoothingEnabled,
         imageSmoothingQuality: this.imageSmoothingQuality
       });
     } else {
       cropedImage = this.cropper.getCroppedCanvas({
-        minWidth: 256,
-        minHeight: 256,
-        maxWidth: 4096,
-        maxHeight: 4096,
         imageSmoothingEnabled: this.imageSmoothingEnabled,
         imageSmoothingQuality: this.imageSmoothingQuality
       });

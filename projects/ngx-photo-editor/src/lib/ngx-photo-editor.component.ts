@@ -8,7 +8,7 @@ import ViewMode = Cropper.ViewMode;
   selector: 'ngx-photo-editor',
   templateUrl: './ngx-photo-editor.component.html',
   styleUrls: ['./ngx-photo-editor.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class NgxPhotoEditorComponent {
 

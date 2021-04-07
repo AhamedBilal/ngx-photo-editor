@@ -30,7 +30,7 @@
     "bootstrap": "^4.5.0",
     "cropperjs": "^1.5.7",
     "hammerjs": "^2.0.8",
-    "ngx-photo-editor": "file:dist/ngx-photo-editor",
+    "ngx-photo-editor": "^0.3.3",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

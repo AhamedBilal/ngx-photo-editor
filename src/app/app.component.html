@@ -19,8 +19,8 @@
 
 
 <ngx-photo-editor
-  [imageChanedEvent]="imageChangedEvent"
   (imageCropped)="imageCropped($event)"
+  [imageChanedEvent]="imageChangedEvent"
   imageFormat="png"
   [aspectRatio]="4/3"
   [viewMode]="0"

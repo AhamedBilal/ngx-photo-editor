@@ -2,7 +2,7 @@
   <div [style.backgroundColor]="darkTheme?'#36393F':'#D8D8D8'" class="modal-body" style="padding-bottom: 0">
     <h5 [style.color]="darkTheme?'white':'black'" style="margin-bottom: 16px">{{modalTitle}}</h5>
     <div [style.height]="canvasHeight+'px'" class="ngx-photo-editor-img-container">
-      <img #image (load)="onImageLoad(image)" [src]="url" id="ngx-photo-editor-image">
+      <img #image (load)="onImageLoad(image)" [src]="url" crossorigin="anonymous" id="ngx-photo-editor-image">
     </div>
   </div>
   <!--  <div style="padding: 5px 16px" [style.backgroundColor]="darkTheme?'#36393F':'#D8D8D8'">-->

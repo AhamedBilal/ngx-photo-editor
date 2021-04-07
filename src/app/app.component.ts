@@ -10,6 +10,8 @@ export class AppComponent {
 
   base64: any;
   imageChangedEvent: any;
+  imageUrl = null;
+
 
   fileChangeEvent(event: any) {
     this.imageChangedEvent = event;
@@ -24,7 +26,4 @@ export class AppComponent {
     window.open('https://github.com/AhamedBilal/ngx-photo-editor');
   }
 
-  // gotoNPM() {
-  //   window.open('https://www.npmjs.com/package/ngx-photo-editor');
-  // }
 }

@@ -6,13 +6,13 @@
 
 <div class="container">
   <form class="mt-3">
-    <div class="custom-file">
-      <input type="file" class="custom-file-input" id="customFile" (change)="fileChangeEvent($event)">
-      <label class="custom-file-label" for="customFile">Choose file</label>
+    <div class="form-group">
+      <label for="customFile">IMAGE URL</label>
+      <input type="url" name="url" class="form-control" id="customFile" [(ngModel)]="imageUrl">
     </div>
   </form>
-  <div class="bg-dark p-5" style="text-align: -webkit-center; height: 400px">
-    <img *ngIf="imageChangedEvent" class="h-100 d-block img-fluid" [src]="base64" alt="">
+  <div *ngIf="base64" class="bg-dark p-5" style="text-align: -webkit-center; height: 400px">
+    <img class="h-100 d-block img-fluid" [src]="base64" alt="">
   </div>
 </div>
 
@@ -20,7 +20,7 @@
 
 <ngx-photo-editor
   (imageCropped)="imageCropped($event)"
-  [imageChanedEvent]="imageChangedEvent"
+  [imageUrl]="imageUrl"
   imageFormat="png"
   [aspectRatio]="4/3"
   [viewMode]="0"

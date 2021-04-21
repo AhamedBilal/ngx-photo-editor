@@ -1,6 +1,7 @@
 # Awesome Photo editor for Angular
 [![NPM version][npm-image]][npm-url]
 [![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg?color=blue&style=flat-square)](http://opensource.org/licenses/MIT)
+[![The MIT License](https://img.shields.io/npm/dt/ngx-photo-editor?style=flat-square)]()
 
 ![example](https://github.com/AhamedBilal/ngx-photo-editor/blob/master/intro.gif?raw=true)
 
@@ -15,7 +16,7 @@
 ```
 
 #### Step 2: Install ngx-photo-editor
-    
+
 ```bash
     npm install ngx-photo-editor --save
 ```
@@ -133,4 +134,4 @@ Define the view mode of the cropper. If you set `viewMode` to `0`, the crop box 
 
 
 [npm-url]: https://www.npmjs.com/package/ngx-photo-editor
-[npm-image]: https://badge.fury.io/js/ngx-photo-editor.svg
+[npm-image]: https://img.shields.io/npm/v/ngx-photo-editor?style=flat-square

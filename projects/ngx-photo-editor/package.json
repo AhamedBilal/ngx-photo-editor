@@ -1,6 +1,6 @@
 {
   "name": "ngx-photo-editor",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "An image cropper for Angular",
   "author": {
     "name": "Ahamed Bilal",
@@ -32,10 +32,10 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": ">=8.2.14",
-    "@angular/core": ">=8.2.14",
-    "@ng-bootstrap/ng-bootstrap": ">=5.3.1",
-    "bootstrap": ">=4.5.0"
+    "@angular/common": ">=4.0.0",
+    "@angular/core": ">=4.0.0",
+    "@ng-bootstrap/ng-bootstrap": ">=4.0.0",
+    "bootstrap": ">=4.0.0"
   },
   "dependencies": {
     "cropperjs": ">=1.5.7"

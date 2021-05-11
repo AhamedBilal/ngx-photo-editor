@@ -82,7 +82,7 @@ All inputs are optional. Either the `imageChangedEvent`, `imageBase64` or `image
 | `imageChangedEvent`        | FileEvent |              | The change event from your file input |
 | `imageFile`                | Blob(File)|              | The file you want to change |
 | `imageBase64`              | string    |              | If you don't want to use a file input, you can set a base64 image directly and it will be loaded into the cropper |
-| `imageURL`                 | string    |              | If you don't want to use a file input or a base64 you can set an URL to get the image from. If requesting an image from a different domain make sure Cross-Origin Resource Sharing (CORS) is allowed or the image will fail to load. |
+| `imageUrl`                 | string    |              | If you don't want to use a file input or a base64 you can set an URL to get the image from. If requesting an image from a different domain make sure Cross-Origin Resource Sharing (CORS) is allowed or the image will fail to load. |
 | `format`                   | string    | png          | Output format (png, jpeg, webp, bmp, ico) (not all browsers support all types, png is always supported, others are optional) |
 | `aspectRatio`              | number    | 1 / 1        | The width / height ratio (e.g. 1 / 1 for a square, 4 / 3, 16 / 9 ...) |
 | `resizeToWidth`            | number    | 0 (disabled) | Cropped image will be resized to this width (in px) |

@@ -1,6 +1,7 @@
 <ng-template id="ngx-photo-editor-modal" #ngxPhotoEditorContent let-modal>
   <div [style.backgroundColor]="darkTheme?'#36393F':'#D8D8D8'" class="modal-body" style="padding-bottom: 0">
-    <h5 *ngIf="!hideModalHeader" [style.color]="darkTheme?'white':'black'" style="margin-bottom: 16px">{{modalTitle}}</h5>
+    <h5 *ngIf="!hideModalHeader" [style.color]="darkTheme?'white':'black'"
+        style="margin-bottom: 16px">{{modalTitle}}</h5>
     <div [style.height]="canvasHeight+'px'" class="ngx-photo-editor-img-container">
       <div *ngIf="!imageLoaded" class="w-100 h-100 d-flex justify-content-center align-items-center text-light">
         <div class="spinner-border" role="status"></div>
@@ -58,7 +59,8 @@
   </div>
   <div [style.backgroundColor]="darkTheme?'#36393F':'#D8D8D8'" class="ngx-photo-editor-custom-modal-footer">
     <button (click)="export(); modal.close();" class="btn btn-primary" type="button">Apply</button>
-    <button (click)="modal.close()" [class.btn-outline-dark]="!darkTheme" [class.btn-outline-light]="darkTheme"
+    <button (click)="imageLoaded = false; modal.close();" [class.btn-outline-dark]="!darkTheme"
+            [class.btn-outline-light]="darkTheme"
             class="btn"
             type="button">Cancel
     </button>

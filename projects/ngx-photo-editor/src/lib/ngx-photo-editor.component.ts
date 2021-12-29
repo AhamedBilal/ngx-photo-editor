@@ -215,6 +215,7 @@ export class NgxPhotoEditorComponent {
         file: new File([blob], Date.now() + '.' + this.format, {type: 'image/' + this.format})
       });
     }, 'image/' + this.format, this.quality / 100);
+    this.imageLoaded = false;
   }
 
   open() {

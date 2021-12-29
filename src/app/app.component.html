@@ -1,7 +1,9 @@
 <mat-toolbar color="primary">
   <span>ngx-photo-editor</span>
   <span class="example-spacer"></span>
-  <button mat-button (click)="gotoGithub()"><mat-icon style="font-size: 24px" fontSet="fab" fontIcon="fa-github"></mat-icon> &nbsp;GitHub</button>
+  <button mat-button (click)="gotoGithub()">
+    <mat-icon style="font-size: 24px" fontSet="fab" fontIcon="fa-github"></mat-icon> &nbsp;GitHub
+  </button>
 </mat-toolbar>
 
 <div class="container">
@@ -12,14 +14,15 @@
     </div>
   </form>
   <div class="bg-dark p-5" style="text-align: -webkit-center; height: 400px">
-    <img *ngIf="imageChangedEvent" class="h-100 d-block img-fluid" [src]="base64" alt="">
+    <img *ngIf="imageUrl || imageChangedEvent" class="h-100 d-block img-fluid" [src]="base64" alt="">
   </div>
 </div>
-
-
+<button (click)="imageUrl = 'https://images.pexels.com/photos/1231643/pexels-photo-1231643.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'"></button>
 
 <ngx-photo-editor
-  [imageChanedEvent]="imageChangedEvent"
+  [hideModalHeader]="true"
+  [imageChangedEvent]="imageChangedEvent"
+  [imageUrl]="imageUrl"
   (imageCropped)="imageCropped($event)"
   imageFormat="png"
   [aspectRatio]="4/3"

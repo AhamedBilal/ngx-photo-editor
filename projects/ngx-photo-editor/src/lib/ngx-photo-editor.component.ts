@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output, ViewChild, ViewEncapsulation} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation} from '@angular/core';
 import Cropper from 'cropperjs';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import ViewMode = Cropper.ViewMode;
@@ -19,6 +19,7 @@ export class NgxPhotoEditorComponent {
   prevZoom = 0;
 
   @Input() modalTitle = 'Photo Editor';
+  @Input() hideModalHeader = false;
   @Input() aspectRatio = 1;
   @Input() autoCropArea = 1;
   @Input() autoCrop = true;
@@ -49,6 +50,7 @@ export class NgxPhotoEditorComponent {
   isFormatDefined = false;
 
   @Output() imageCropped = new EventEmitter<CroppedEvent>();
+  imageLoaded = false;
 
   constructor(private modalService: NgbModal) {
   }
@@ -85,7 +87,7 @@ export class NgxPhotoEditorComponent {
     }
   }
 
-  @Input() set imageChanedEvent(event: any) {
+  @Input() set imageChangedEvent(event: any) {
     if (event) {
       const file = event.target.files[0];
       if (file && (/\.(gif|jpe?g|tiff|png|webp|bmp)$/i).test(file.name)) {
@@ -115,12 +117,12 @@ export class NgxPhotoEditorComponent {
   }
 
   onImageLoad(image) {
-
     image.addEventListener('ready', () => {
       if (this.roundCropper) {
         (document.getElementsByClassName('cropper-view-box')[0] as HTMLElement).style.borderRadius = '50%';
         (document.getElementsByClassName('cropper-face')[0] as HTMLElement).style.borderRadius = '50%';
       }
+      this.imageLoaded = true;
     });
 
     this.cropper = new Cropper(image, {

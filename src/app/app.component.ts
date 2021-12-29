@@ -10,6 +10,7 @@ export class AppComponent {
 
   base64: any;
   imageChangedEvent: any;
+  imageUrl: any;
 
   fileChangeEvent(event: any) {
     this.imageChangedEvent = event;
@@ -17,6 +18,7 @@ export class AppComponent {
 
 
   imageCropped(event: CroppedEvent) {
+    console.log(event);
     this.base64 = event.base64;
   }
 

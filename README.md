@@ -39,7 +39,7 @@ Add the element to your HTML:
 <div><input type="file" (change)="fileChangeEvent($event)"/></div>
 
 <ngx-photo-editor
-  [imageChanedEvent]="imageChangedEvent"
+  [imageChangedEvent]="imageChangedEvent"
   (imageCropped)="imageCropped($event)"
   [aspectRatio]="4/3"
   [viewMode]="3"

@@ -59,7 +59,7 @@
   </div>
   <div [style.backgroundColor]="darkTheme?'#36393F':'#D8D8D8'" class="ngx-photo-editor-custom-modal-footer">
     <button (click)="export(); modal.close();" class="btn btn-primary" type="button">Apply</button>
-    <button (click)="imageLoaded = false; modal.close();" [class.btn-outline-dark]="!darkTheme"
+    <button (click)="imageLoaded = false; url=null; modal.close();" [class.btn-outline-dark]="!darkTheme"
             [class.btn-outline-light]="darkTheme"
             class="btn"
             type="button">Cancel

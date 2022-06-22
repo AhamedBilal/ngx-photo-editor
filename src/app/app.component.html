@@ -17,15 +17,18 @@
     <img *ngIf="imageUrl || imageChangedEvent" class="h-100 d-block img-fluid" [src]="base64" alt="">
   </div>
 </div>
-<button (click)="imageUrl = 'https://images.pexels.com/photos/1231643/pexels-photo-1231643.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'"></button>
-
+<button
+  (mouseup)="imageUrl = null"
+  (click)="imageUrl = 'https://images.pexels.com/photos/1231643/pexels-photo-1231643.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940';">
+  Crop
+</button>
 <ngx-photo-editor
   [hideModalHeader]="true"
   [imageChangedEvent]="imageChangedEvent"
   [imageUrl]="imageUrl"
   (imageCropped)="imageCropped($event)"
   imageFormat="png"
-  [aspectRatio]="4/3"
+  [aspectRatio]="0"
   [viewMode]="0"
   [resizeToWidth]="500"
 >

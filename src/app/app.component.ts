@@ -29,4 +29,7 @@ export class AppComponent {
   // gotoNPM() {
   //   window.open('https://www.npmjs.com/package/ngx-photo-editor');
   // }
+  crop() {
+    this.imageUrl = 'https://images.pexels.com/photos/1231643/pexels-photo-1231643.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940';
+  }
 }

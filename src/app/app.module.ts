@@ -1,10 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {NgxPhotoEditorModule} from '../../projects/ngx-photo-editor/src/lib/ngx-photo-editor.module';
-import {MatButtonModule, MatButtonToggleModule, MatIconModule, MatInputModule, MatToolbarModule} from '@angular/material';
-// import {NgxPhotoEditorModule} from 'ngx-photo-editor';
 
 @NgModule({
   declarations: [
@@ -12,13 +10,7 @@ import {MatButtonModule, MatButtonToggleModule, MatIconModule, MatInputModule, M
   ],
   imports: [
     BrowserModule,
-    NgxPhotoEditorModule,
-    MatInputModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatButtonToggleModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

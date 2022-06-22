@@ -1,0 +1,16 @@
+<div class="overlay-container">
+  <div class="dialog-container">
+    <div class="dialog-header">
+      Title Here
+    </div>
+    <div class="dialog-body">
+      <div>
+        <img #image [src]="imgUrl" alt="">
+      </div>
+    </div>
+    <div class="dialog-footer">
+      <button (click)="close()">Close</button>
+      <button (click)="crop()">Crop</button>
+    </div>
+  </div>
+</div>

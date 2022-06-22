@@ -1,0 +1,48 @@
+.overlay-container {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.dialog-container {
+  border-radius: 4px;
+  box-sizing: border-box;
+  overflow: auto;
+  outline: 0;
+  width: 500px;
+  height: auto;
+  max-height: 90vh;
+  box-shadow: 0 11px 15px -7px #0003, 0 24px 38px 3px #00000024, 0 9px 46px 8px #0000001f;
+  background: white;
+  color: #000000de;
+  display: flex;
+  flex-direction: column;
+}
+.dialog-header {
+  background: aqua;
+  padding: 1rem 1rem 1rem 1rem
+}
+.dialog-body {
+  height: 100%;
+  overflow: auto;
+}
+.dialog-footer {
+  padding: 1rem 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}

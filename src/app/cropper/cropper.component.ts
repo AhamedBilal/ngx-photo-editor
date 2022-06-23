@@ -10,7 +10,7 @@ import ViewMode = Cropper.ViewMode;
 export class CropperComponent implements AfterViewInit {
 
   @ViewChild('image') image!: ElementRef;
-  imgUrl = 'https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=600';
+  imgUrl = 'https://images.pexels.com/photos/12373451/pexels-photo-12373451.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load';
 
   public cropper!: Cropper;
   public outputImage!: string;
@@ -52,19 +52,7 @@ export class CropperComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.cropper = new Cropper(this.image.nativeElement, {
-      aspectRatio: this.aspectRatio,
-      autoCropArea: this.autoCropArea,
-      autoCrop: this.autoCrop,
-      modal: this.mask, // black mask
-      guides: this.guides, // grid
-      center: this.centerIndicator, // center indicator
-      viewMode: this.viewMode,
-      scalable: this.scalable,
-      zoomable: this.zoomable,
-      cropBoxMovable: this.cropBoxMovable,
-      cropBoxResizable: this.cropBoxResizable,
-    });
+
   }
 
   rotateRight() {
@@ -135,6 +123,27 @@ export class CropperComponent implements AfterViewInit {
 
 
   close() {
+  }
+
+  onLoad() {
+    this.image.nativeElement.addEventListener('ready', () => {
+      this.imageLoaded = true;
+    });
+
+    this.cropper = new Cropper(this.image.nativeElement, {
+      aspectRatio: this.aspectRatio,
+      autoCropArea: this.autoCropArea,
+      autoCrop: this.autoCrop,
+      modal: this.mask, // black mask
+      guides: this.guides, // grid
+      center: this.centerIndicator, // center indicator
+      viewMode: this.viewMode,
+      scalable: this.scalable,
+      zoomable: this.zoomable,
+      background: false,
+      cropBoxMovable: this.cropBoxMovable,
+      cropBoxResizable: this.cropBoxResizable,
+    });
   }
 }
 

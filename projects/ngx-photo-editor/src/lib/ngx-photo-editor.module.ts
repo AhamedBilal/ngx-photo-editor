@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {NgxPhotoEditorComponent} from './ngx-photo-editor.component';
-import {BrowserModule} from "@angular/platform-browser";
+import {CommonModule} from "@angular/common";
 
 
 @NgModule({
@@ -8,7 +8,7 @@ import {BrowserModule} from "@angular/platform-browser";
     NgxPhotoEditorComponent
   ],
   imports: [
-    BrowserModule,
+    CommonModule,
   ],
   exports: [
     NgxPhotoEditorComponent

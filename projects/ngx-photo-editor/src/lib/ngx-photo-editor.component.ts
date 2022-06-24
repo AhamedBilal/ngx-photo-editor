@@ -39,6 +39,10 @@ export class NgxPhotoEditorComponent implements OnDestroy {
   @Input() imageSmoothingEnabled = true;
   @Input() imageSmoothingQuality: ImageSmoothingQuality = 'high';
   @Input() format: string | any;
+
+  @Input() closeBtnText = 'Close';
+  @Input() applyBtnText = 'Apply';
+
   quality = 92;
 
   @Input() set imageQuality(value: number) {
@@ -54,6 +58,7 @@ export class NgxPhotoEditorComponent implements OnDestroy {
   @Output() errorEvent = new EventEmitter<any>();
   imageLoaded = false;
   isProcessing = false;
+
 
   @Input() set source(data: File | string | any) {
     if (data instanceof Event) {

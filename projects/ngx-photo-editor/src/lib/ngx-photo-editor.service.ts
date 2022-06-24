@@ -76,7 +76,7 @@ export interface Options {
   guides?: boolean;
   centerIndicator?: boolean;
   viewMode?: ViewMode;
-  modalWidth?: '500px';
+  modalMaxWidth?: string;
   modalCentered?: boolean;
   scalable?: boolean;
   zoomable?: boolean;
@@ -91,4 +91,6 @@ export interface Options {
   imageSmoothingQuality?: ImageSmoothingQuality;
   format?: string | any;
   imageQuality?: number;
+  applyBtnText?: string;
+  closeBtnText?: string;
 }

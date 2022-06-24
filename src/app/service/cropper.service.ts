@@ -1,4 +1,11 @@
-import {ComponentRef, Injectable, ViewContainerRef} from '@angular/core';
+import {
+  ApplicationRef,
+  ComponentFactoryResolver,
+  ComponentRef, EmbeddedViewRef,
+  Injectable,
+  Injector,
+  ViewContainerRef
+} from '@angular/core';
 import {Observable, Subject} from "rxjs";
 import {CropperComponent} from "../cropper/cropper.component";
 
@@ -11,13 +18,24 @@ export class CropperService {
   private cropperComponentRef!: ComponentRef<CropperComponent>;
 
   constructor(
-    private viewContainerRef: ViewContainerRef
+    private componentFactoryResolver: ComponentFactoryResolver,
+    private appRef: ApplicationRef,
+    private injector: Injector
   ) {
   }
 
   open(): Observable<any> {
-    this.viewContainerRef.clear();
-    this.cropperComponentRef = this.viewContainerRef.createComponent(CropperComponent);
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(CropperComponent);
+    const componentRef = componentFactory.create(this.injector);
+    this.appRef.attachView(componentRef.hostView);
+
+    const domElem = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
+    document.body.appendChild(domElem);
+
+    this.cropperComponentRef = componentRef;
+    this.cropperComponentRef.instance.closeEvent.subscribe(() => this.close());
+    this.cropperComponentRef.instance.imageCropped.subscribe(this.export);
+    this.cropperSubscriber = new Subject<string>();
     return this.cropperSubscriber.asObservable();
   }
 

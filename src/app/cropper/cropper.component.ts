@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import Cropper from 'cropperjs';
 import ViewMode = Cropper.ViewMode;
+import {CropperService} from "../service/cropper.service";
 
 @Component({
   selector: 'app-cropper',
@@ -45,10 +46,11 @@ export class CropperComponent implements AfterViewInit {
 
   isFormatDefined = false;
 
+  @Output() closeEvent = new EventEmitter<CroppedEvent>();
   @Output() imageCropped = new EventEmitter<CroppedEvent>();
   imageLoaded = false;
 
-  constructor() {
+  constructor(private service: CropperService) {
   }
 
   ngAfterViewInit(): void {
@@ -123,6 +125,7 @@ export class CropperComponent implements AfterViewInit {
 
 
   close() {
+    this.service.close();
   }
 
   onLoad() {

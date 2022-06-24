@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewContainerRef} from '@angular/core';
 import {CropperComponent} from "./cropper/cropper.component";
+import {CropperService} from "./service/cropper.service";
 
 @Component({
   selector: 'app-root',
@@ -10,17 +11,15 @@ export class AppComponent implements OnInit {
   title = 'ngx-photo-editor-app';
 
   constructor(
-    private viewContainerRef: ViewContainerRef
+    private service: CropperService
   ) {
   }
 
   ngOnInit(): void {
-    // this.render();
   }
 
 
-  render() {
-    this.viewContainerRef.clear();
-    const cropperComponentComponentRef = this.viewContainerRef.createComponent(CropperComponent);
+  open() {
+    this.service.open();
   }
 }

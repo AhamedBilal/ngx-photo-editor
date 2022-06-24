@@ -26,7 +26,6 @@
   overflow: hidden;
   outline: 0;
   width: 100%;
-  max-width: 600px;
   height: auto;
   max-height: 95vh;
   box-shadow: 0 11px 15px -7px #0003, 0 24px 38px 3px #00000024, 0 9px 46px 8px #0000001f;
@@ -37,6 +36,8 @@
 }
 .ngx-pe-dialog-header {
   padding: 1rem 1rem 1rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
 }
 .ngx-pe-dialog-body {
   height: 100%;
@@ -76,11 +77,12 @@
   border-width: 0;
   color: #fff;
   cursor: pointer;
-  display: block;
   float: left;
   font-size: 0.875rem;
   height: 2.5rem;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 2.5rem;
 }
 .ngx-pe-tool-bar button:hover {
@@ -172,6 +174,9 @@
   justify-content: center;
   align-items: center;
   transition: all 10s ease;
+}
+.ngx-pe-processing {
+  background-color: rgba(34,34,34, 0.8);
 }
 .ngx-pe-loading svg {
   width: 50px;

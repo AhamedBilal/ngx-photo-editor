@@ -17,14 +17,14 @@ export class NgxPhotoEditorComponent implements OnDestroy {
 
   @Input() modalTitle = 'Photo Editor';
   @Input() hideModalHeader = false;
-  @Input() aspectRatio = 1;
-  @Input() autoCropArea = 1;
+  @Input() aspectRatio = NaN;
+  @Input() autoCropArea = 0.8;
   @Input() autoCrop = true;
   @Input() mask = true;
   @Input() guides = true;
   @Input() centerIndicator = true;
   @Input() viewMode: ViewMode = 0;
-  @Input() modalWidth = '500px';
+  @Input() modalMaxWidth = '500px';
   @Input() modalCentered = false;
   @Input() scalable = true;
   @Input() zoomable = true;
@@ -53,6 +53,7 @@ export class NgxPhotoEditorComponent implements OnDestroy {
   @Output() imageCroppedEvent = new EventEmitter<NgxCroppedEvent>();
   @Output() errorEvent = new EventEmitter<any>();
   imageLoaded = false;
+  isProcessing = false;
 
   @Input() set source(data: File | string | any) {
     if (data instanceof Event) {
@@ -147,6 +148,8 @@ export class NgxPhotoEditorComponent implements OnDestroy {
   }
 
   export() {
+    this.isProcessing = true;
+    this.imageLoaded = false;
     let cropedImage = this.cropper.getCroppedCanvas({
       width: this.resizeToWidth,
       height: this.resizeToHeight,
@@ -162,6 +165,8 @@ export class NgxPhotoEditorComponent implements OnDestroy {
           Date.now() + '.' + this.format,
           {type: 'image/' + this.format})
       });
+      this.isProcessing = false;
+      this.imageLoaded = true;
     }, 'image/' + this.format, this.quality / 100);
   }
 

@@ -18,7 +18,7 @@
             </circle>
           </svg>
         </div>
-        <img class="ngx-pe-img" #image loading="lazy" (load)="onLoad()" [src]="imgUrl" alt="">
+        <img class="ngx-pe-img" #image loading="lazy" (load)="onLoad()" (error)="error()" [src]="imgUrl" alt="cropper-img" crossorigin="anonymous">
         <div class="ngx-pe-tool-bar">
           <!--move-->
           <button (click)="move()" title="Move">

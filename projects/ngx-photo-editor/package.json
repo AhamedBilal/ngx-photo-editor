@@ -51,7 +51,7 @@
     "cropperjs": ">=1.5.12-0"
   },
   "exports": {
-    "./photo-editor": {
+    "./": {
       "default": "./photo-editor.css"
     }
   }

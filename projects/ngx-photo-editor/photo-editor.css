@@ -57,20 +57,16 @@
   display: block;
   max-width: 100%;
   height: auto;
-  max-height: 400px;
+  max-height: 300px;
 }
 .ngx-pe-tool-bar {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #222;
   box-sizing: border-box;
-  left: 50%;
   width: 100%;
-  transform: translate(-50%, 0);
 }
 .ngx-pe-tool-bar button {
   background-color: transparent;

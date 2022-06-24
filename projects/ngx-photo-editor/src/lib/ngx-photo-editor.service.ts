@@ -26,40 +26,38 @@ export class NgxPhotoEditorService {
     private injector: Injector) {
   }
 
-  open(source: Event | string | File | any, data?: Options): Observable<NgxCroppedEvent> {
+  open(source: Event | string | File | any, options?: Options): Observable<NgxCroppedEvent> {
     const componentFactory = this.componentFactoryResolver.resolveComponentFactory(NgxPhotoEditorComponent);
     const componentRef = componentFactory.create(this.injector);
     this.appRef.attachView(componentRef.hostView);
     const domElem = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
     document.body.appendChild(domElem);
-
     this.ngxPESubscriber = new Subject<string>();
     this.ngxPEComponentRef = componentRef;
-
     this.ngxPEComponentRef.instance.closeEvent.subscribe(() => this.close());
     this.ngxPEComponentRef.instance.errorEvent.subscribe((data) => this.errorHandler(data));
     this.ngxPEComponentRef.instance.imageCroppedEvent.subscribe((data) => this.export(data));
-    if (data) {
-      Object.keys(data).map(value => {
+    if (options) {
+      Object.keys(options).map(value => {
         // @ts-ignore
-        this.ngxPEComponentRef.instance[value] = data[value];
+        this.ngxPEComponentRef.instance[value] = options[value];
       })
     }
     this.ngxPEComponentRef.instance.source = source;
     return this.ngxPESubscriber.asObservable();
   }
 
-  errorHandler(data: any) {
+  private errorHandler(data: any) {
     this.ngxPESubscriber.error(data);
     this.close();
   }
 
-  close() {
+  private close() {
     this.ngxPESubscriber.complete();
     this.ngxPEComponentRef.destroy();
   }
 
-  export(data: any) {
+  private export(data: any) {
     this.ngxPESubscriber.next(data);
     this.close();
   }
@@ -77,14 +75,11 @@ export interface Options {
   centerIndicator?: boolean;
   viewMode?: ViewMode;
   modalMaxWidth?: string;
-  modalCentered?: boolean;
   scalable?: boolean;
   zoomable?: boolean;
   cropBoxMovable?: boolean;
   cropBoxResizable?: boolean;
-  darkTheme?: boolean;
   roundCropper?: boolean;
-  canvasHeight?: number;
   resizeToWidth?: number | any;
   resizeToHeight?: number | any;
   imageSmoothingEnabled?: boolean;

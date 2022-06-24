@@ -113,7 +113,7 @@ export class NgxPhotoEditorComponent implements OnDestroy {
   }
 
   isValidImageURL(str: string) {
-    return !!str.match(/\w+\.(jpg|jpeg|gif|png|tiff|bmp)$/gi);
+    return str.match(/^http[^\?]*.(jpg|jpeg|gif|png|tiff|bmp)(\?(.*))?(\#(.*))?$/gim);
   }
 
   rotateRight() {
@@ -203,6 +203,10 @@ export class NgxPhotoEditorComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     console.log('destroyed');
+  }
+
+  error() {
+    this.errorEvent.emit('Error loading image');
   }
 }
 

@@ -1,6 +1,5 @@
-import {Component, OnInit, ViewContainerRef} from '@angular/core';
-import {NgxPhotoEditorService} from "../../projects/ngx-photo-editor/src/lib/ngx-photo-editor.service";
-import {NgxCroppedEvent} from "../../projects/ngx-photo-editor/src/lib/ngx-photo-editor.component";
+import {Component} from '@angular/core';
+import {NgxCroppedEvent, NgxPhotoEditorService} from "ngx-photo-editor";
 
 @Component({
   selector: 'app-root',
@@ -8,14 +7,14 @@ import {NgxCroppedEvent} from "../../projects/ngx-photo-editor/src/lib/ngx-photo
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  output: NgxCroppedEvent | any;
+  output?: NgxCroppedEvent;
 
-  constructor(private service: NgxPhotoEditorService) {
-  }
+  constructor(private service: NgxPhotoEditorService) {}
 
-  changeEvent($event: any) {
-    this.service.open($event, {
-      aspectRatio: null
+  fileChangeHandler($event: any) {
+    this.service.open('https://images.pexels.com/photos/7913028/pexels-photo-7913028.jpeg#gfgfgf', {
+      aspectRatio: 4 / 3,
+      autoCropArea: 1
     }).subscribe(value => {
       this.output = value;
     });

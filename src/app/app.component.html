@@ -8,13 +8,13 @@
 </mat-toolbar>
 
 <div class="container mx-auto p-4">
-  <input hidden #inputFile type="file" (change)="changeEvent($event)">
+  <input hidden #inputFile type="file" (change)="fileChangeHandler($event)">
   <div class="bg-gray-100 rounded shadow">
     <div class="bg-[#3f51b5] text-right">
       <button *ngIf="output" class="text-white" mat-icon-button (click)="download()">
         <mat-icon>download</mat-icon>
       </button>
-      <button *ngIf="output" class="text-white" mat-icon-button (click)="output = null">
+      <button *ngIf="output" class="text-white" mat-icon-button (click)="output = undefined">
         <mat-icon>close</mat-icon>
       </button>
     </div>

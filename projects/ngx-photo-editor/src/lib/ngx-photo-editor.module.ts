@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { NgxPhotoEditorComponent } from './ngx-photo-editor.component';
-
+import {NgModule} from '@angular/core';
+import {NgxPhotoEditorComponent} from './ngx-photo-editor.component';
+import {BrowserModule} from "@angular/platform-browser";
 
 
 @NgModule({
@@ -8,9 +8,11 @@ import { NgxPhotoEditorComponent } from './ngx-photo-editor.component';
     NgxPhotoEditorComponent
   ],
   imports: [
+    BrowserModule,
   ],
   exports: [
     NgxPhotoEditorComponent
   ]
 })
-export class NgxPhotoEditorModule { }
+export class NgxPhotoEditorModule {
+}

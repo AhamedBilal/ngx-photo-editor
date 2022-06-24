@@ -1,1 +1,32 @@
-<button (click)="open()">Button</button>
+<mat-toolbar color="primary">
+  <span>ngx-photo-editor</span>
+  <span class="spacer"></span>
+  <button mat-button (click)="gotoGithub()">
+    <mat-icon style="font-size: 24px" fontSet="fab" fontIcon="fa-github"></mat-icon>
+    GitHub
+  </button>
+</mat-toolbar>
+
+<div class="container mx-auto p-4">
+  <input hidden #inputFile type="file" (change)="changeEvent($event)">
+  <div class="bg-gray-100 rounded shadow">
+    <div class="bg-[#3f51b5] text-right">
+      <button *ngIf="output" class="text-white" mat-icon-button (click)="download()">
+        <mat-icon>download</mat-icon>
+      </button>
+      <button *ngIf="output" class="text-white" mat-icon-button (click)="output = null">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
+    <div class="flex justify-center items-center p-10 min-h-[350px]">
+      <div *ngIf="!output" class="text-center">
+        <button color="primary" class="mb-4" (click)="inputFile.value = ''; inputFile.click();" mat-raised-button>
+          <mat-icon>add_photo_alternate</mat-icon>
+          Browse
+        </button>
+      </div>
+      <img *ngIf="output" class="max-h-[300px]" [src]="output?.base64" alt="">
+    </div>
+  </div>
+</div>

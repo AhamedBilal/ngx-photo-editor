@@ -1,6 +1,6 @@
 # Image Cropper for Angular
-[![NPM version][npm-img]][npm-url]  
-[![The MIT License][license-img]][license]  
+[![NPM version][npm-img]][npm-url]
+[![The MIT License][license-img]][license]
 [![The MIT License][downloads-img]][downloads]
 
 ![example](https://github.com/AhamedBilal/ngx-photo-editor/blob/master/intro.gif?raw=true)
@@ -30,7 +30,7 @@
 ```
 "styles": [
   "styles.scss",
-  "node_modules/ngx-toastr/toastr.css" // try adding '../' if you're using angular cli before 6
+  "node_modules/ngx-photo-editor/photo-editor.css" // try adding '../' if you're using angular cli before 6
 ]
 ```
 #### Step 2:

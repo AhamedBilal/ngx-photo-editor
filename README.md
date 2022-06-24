@@ -1,6 +1,6 @@
 # Image Cropper for Angular
-[![NPM version][npm-img]][npm-url]  
-[![The MIT License][license-img]][license]  
+[![NPM version][npm-img]][npm-url]
+[![The MIT License][license-img]][license]
 [![The MIT License][downloads-img]][downloads]
 
 ![example](https://github.com/AhamedBilal/ngx-photo-editor/blob/master/intro.gif?raw=true)

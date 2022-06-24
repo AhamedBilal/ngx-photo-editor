@@ -24,13 +24,13 @@
 #### Step 1:
 - Import CSS.
 ```css
-@import "~ngx-photo-editor/photo-editor";
+@import "~ngx-photo-editor/photo-editor.css";
 ``` 
 -   If you are using angular-cli you can add it to your angular.json
-```json
+```
 "styles": [
   "styles.scss",
-  "node_modules/ngx-toastr/toastr.css" // try adding '../' if you're using angular cli before 6
+  "node_modules/ngx-photo-editor/photo-editor.css" // try adding '../' if you're using angular cli before 6
 ]
 ```
 #### Step 2:
@@ -39,7 +39,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
-import {NgxPhotoEditorModule} from "../../projects/ngx-photo-editor/src/lib/ngx-photo-editor.module";
+import {NgxPhotoEditorModule} from "ngx-photo-editor";
 
 @NgModule({
   declarations: [
@@ -64,8 +64,8 @@ export class AppModule {
 
 And add this to your .ts file:
 ```ts  
-import {NgxPhotoEditorService} from "../../projects/ngx-photo-editor/src/lib/ngx-photo-editor.service";
-import {NgxCroppedEvent} from "../../projects/ngx-photo-editor/src/lib/ngx-photo-editor.component";
+import {Component} from '@angular/core';
+import {NgxCroppedEvent, NgxPhotoEditorService} from "ngx-photo-editor";
 
 @Component({...})
 export class AppComponent {
@@ -84,7 +84,7 @@ export class AppComponent {
 }
 ```    
 
-You can pass any supported type of parameters to `NgxPhotoEditorService.open()` to open the cropper.  After click `Apply` button the observer will return a  object with the cropped image as a Base64, Blob in its payload.
+You can pass any supported type of parameters to `NgxPhotoEditorService.open()` to open the cropper.  After click `Apply` button the observer will return an object with the cropped image as a Base64, Blob in its payload.
 
 ## Parameters
 | Name | Type | Description|
@@ -123,10 +123,10 @@ You can pass any supported type of parameters to `NgxPhotoEditorService.open()` 
 
 ## Interfaces
 #### NgxCroppedEvent
-| Property              | Type            | Description |  
-| --------------------  | ------          | ----------- |  
-| base64                | string          | Base64 string of the cropped image |  
-| file                  | file(Blob)      | Blob(File) of the cropped image |  
+| Property | Type | Description |  
+| --  | --| -- |  
+| base64 | string          | Base64 string of the cropped image |  
+| file | file(Blob)      | Blob(File) of the cropped image |
 
 ### viewMode
 

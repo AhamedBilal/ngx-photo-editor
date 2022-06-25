@@ -7,5 +7,7 @@
   "assets": [
     "./photo-editor.css"
   ],
-  "whitelistedNonPeerDependencies": ["."]
+  "allowedNonPeerDependencies": [
+    "cropperjs"
+  ]
 }

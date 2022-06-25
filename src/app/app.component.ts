@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(private service: NgxPhotoEditorService) {}
 
   fileChangeHandler($event: any) {
-    this.service.open('https://images.pexels.com/photos/7913028/pexels-photo-7913028.jpeg#gfgfgf', {
+    this.service.open($event, {
       aspectRatio: 4 / 3,
       autoCropArea: 1
     }).subscribe(value => {

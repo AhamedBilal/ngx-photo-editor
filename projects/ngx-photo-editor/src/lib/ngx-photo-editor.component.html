@@ -18,7 +18,7 @@
             </circle>
           </svg>
         </div>
-        <img class="ngx-pe-img" #image loading="lazy" (load)="onLoad()" (error)="error()" [src]="imgUrl" alt="cropper-img" crossorigin="anonymous">
+        <img *ngIf="imgUrl" class="ngx-pe-img" #image loading="lazy" (load)="onLoad()" (error)="error()" [src]="imgUrl" alt="cropper-img" crossorigin="anonymous">
         <div class="ngx-pe-tool-bar">
           <!--move-->
           <button (click)="move()" title="Move">
@@ -95,7 +95,7 @@
     </div>
     <div class="ngx-pe-dialog-footer">
       <button class="ngx-pe-btn ngx-pe-btn-outline-light" (click)="close()">{{closeBtnText}}</button>
-      <button class="ngx-pe-btn ngx-pe-btn-primary" (click)="export()">{{applyBtnText}}</button>
+      <button class="ngx-pe-btn ngx-pe-btn-primary" [disabled]="isProcessing" (click)="export()">{{applyBtnText}}</button>
     </div>
   </div>
 </div>

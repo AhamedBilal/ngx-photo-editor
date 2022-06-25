@@ -1,6 +1,6 @@
 {
   "name": "ngx-photo-editor",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "An image cropper for Angular",
   "author": {
     "name": "Ahamed Bilal",

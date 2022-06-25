@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "deploy": "ng deploy --base-href=/ngx-photo-editor/",
     "build:lib": "ng build ngx-photo-editor",
     "test:lib": "ng test ngx-photo-editor",
     "lint:lib": "ng lint ngx-photo-editor"
@@ -27,8 +28,8 @@
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
-    "cropperjs": "^1.5.12",
-    "ngx-photo-editor": "file:dist/ngx-photo-editor",
+    "angular-cli-ghpages": "^0.1.7",
+    "ngx-photo-editor": "^0.4.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

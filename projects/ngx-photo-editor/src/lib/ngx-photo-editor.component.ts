@@ -163,16 +163,18 @@ export class NgxPhotoEditorComponent implements OnDestroy {
     });
 
     const outputImage = cropedImage.toDataURL('image/' + this.format, this.quality);
-    cropedImage.toBlob((blob: any) => {
-      this.imageCroppedEvent.emit({
-        base64: outputImage,
-        file: new File([blob],
-          Date.now() + '.' + this.format,
-          {type: 'image/' + this.format})
-      });
-      this.isProcessing = false;
-      this.imageLoaded = true;
-    }, 'image/' + this.format, this.quality / 100);
+    fetch(outputImage)
+      .then(res => res.blob())
+      .then(blob => {
+        this.isProcessing = false;
+        this.imageLoaded = true;
+        this.imageCroppedEvent.emit({
+          base64: outputImage,
+          file: new File([blob],
+            Date.now() + '.' + this.format,
+            {type: 'image/' + this.format})
+        });
+      })
   }
 
 
@@ -202,7 +204,6 @@ export class NgxPhotoEditorComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('destroyed');
   }
 
   error() {

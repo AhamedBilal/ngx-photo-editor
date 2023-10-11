@@ -13,8 +13,9 @@ export class AppComponent {
 
   fileChangeHandler($event: any) {
     this.service.open('https://images.pexels.com/photos/7913028/pexels-photo-7913028.jpeg#gfgfgf', {
-      aspectRatio: 4 / 3,
-      autoCropArea: 1
+      aspectRatio: 1,
+      autoCropArea: 1,
+      roundCropper: true,
     }).subscribe(value => {
       this.output = value;
     });

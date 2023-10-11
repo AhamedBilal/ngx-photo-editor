@@ -4,7 +4,7 @@
       {{modalTitle}}
     </div>
     <div class="ngx-pe-dialog-body">
-      <div class="ngx-pe-cropper-wrapper">
+      <div class="ngx-pe-cropper-wrapper" [class]="roundCropper ? 'ngx-pe-cropper-round' : ''">
         <div class="ngx-pe-loading" *ngIf="!imageLoaded" [class.ngx-pe-processing]="isProcessing">
           <svg xmlns="http://www.w3.org/2000/svg"
                style="margin: auto; display: block; shape-rendering: auto; animation-play-state: running; animation-delay: 0s;"

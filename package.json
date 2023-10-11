@@ -4,12 +4,15 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "host": "ng serve --host=0.0.0.0 --disable-host-check",
+    "build": "ng build --base-href /ngx-photo-editor/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "deploy": "npm run build && npx angular-cli-ghpages --dir=dist/ngx-photo-editor-app",
     "build:lib": "ng build ngx-photo-editor",
     "test:lib": "ng test ngx-photo-editor",
-    "lint:lib": "ng lint ngx-photo-editor"
+    "lint:lib": "ng lint ngx-photo-editor",
+    "lint:publish": "npm publish dist/ngx-photo-editor/"
   },
   "private": true,
   "dependencies": {
@@ -27,7 +30,6 @@
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
-    "cropperjs": "^1.5.12",
     "ngx-photo-editor": "file:dist/ngx-photo-editor",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
@@ -38,6 +40,7 @@
     "@angular/cli": "~14.0.2",
     "@angular/compiler-cli": "^14.0.0",
     "@types/jasmine": "~4.0.0",
+    "angular-cli-ghpages": "^1.0.0",
     "autoprefixer": "^10.4.7",
     "jasmine-core": "~4.1.0",
     "karma": "~6.3.0",

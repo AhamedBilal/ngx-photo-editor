@@ -4,7 +4,7 @@
       {{modalTitle}}
     </div>
     <div class="ngx-pe-dialog-body">
-      <div class="ngx-pe-cropper-wrapper">
+      <div class="ngx-pe-cropper-wrapper" [class]="roundCropper ? 'ngx-pe-cropper-round' : ''">
         <div class="ngx-pe-loading" *ngIf="!imageLoaded" [class.ngx-pe-processing]="isProcessing">
           <svg xmlns="http://www.w3.org/2000/svg"
                style="margin: auto; display: block; shape-rendering: auto; animation-play-state: running; animation-delay: 0s;"
@@ -18,7 +18,7 @@
             </circle>
           </svg>
         </div>
-        <img class="ngx-pe-img" #image loading="lazy" (load)="onLoad()" (error)="error()" [src]="imgUrl" alt="cropper-img" crossorigin="anonymous">
+        <img *ngIf="imgUrl" class="ngx-pe-img" #image loading="lazy" (load)="onLoad()" (error)="error()" [src]="imgUrl" alt="cropper-img" crossorigin="anonymous">
         <div class="ngx-pe-tool-bar">
           <!--move-->
           <button (click)="move()" title="Move">
@@ -95,7 +95,7 @@
     </div>
     <div class="ngx-pe-dialog-footer">
       <button class="ngx-pe-btn ngx-pe-btn-outline-light" (click)="close()">{{closeBtnText}}</button>
-      <button class="ngx-pe-btn ngx-pe-btn-primary" (click)="export()">{{applyBtnText}}</button>
+      <button class="ngx-pe-btn ngx-pe-btn-primary" [disabled]="isProcessing" (click)="export()">{{applyBtnText}}</button>
     </div>
   </div>
 </div>

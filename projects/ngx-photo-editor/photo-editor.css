@@ -53,6 +53,11 @@
 .ngx-pe-cropper-wrapper {
   position: relative;
 }
+
+.ngx-pe-cropper-round .cropper-view-box {
+  border-radius: 100%;
+}
+
 .ngx-pe-img {
   display: block;
   max-width: 100%;
